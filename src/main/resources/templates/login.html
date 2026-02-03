@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{layout/base :: layout(~{::title}, ~{::content}, ~{::toolbarContent})}">
+<head>
+  <meta charset="utf-8"/>
+  <title th:fragment="title">로그인</title>
+</head>
+<body>
+  <div th:fragment="content">
+    <div class="page f7-page no-navbar no-toolbar no-swipeback login-screen-page" data-name="login">
+      <div class="page-content f7-page-content login-screen-content">
+        <div class="login-screen-title">로그인</div>
+        <form th:action="@{/login}" method="post">
+          <div th:if="${param.error}" class="block block-strong inset">
+            <p class="color-red">아이디 또는 비밀번호가 올바르지 않습니다.</p>
+          </div>
+          <div th:if="${param.logout}" class="block block-strong inset">
+            <p>로그아웃되었습니다.</p>
+          </div>
+          <div class="list list-strong inset">
+            <ul>
+              <li class="item-content item-input">
+                <div class="item-inner">
+                  <div class="item-title item-label">아이디</div>
+                  <div class="item-input-wrap">
+                    <input type="text" name="username" placeholder="아이디" required="required" autofocus="autofocus"/>
+                  </div>
+                </div>
+              </li>
+              <li class="item-content item-input">
+                <div class="item-inner">
+                  <div class="item-title item-label">비밀번호</div>
+                  <div class="item-input-wrap">
+                    <input type="password" name="password" placeholder="비밀번호" required="required"/>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="list inset">
+            <ul>
+              <li>
+                <button type="submit" class="list-button">로그인</button>
+              </li>
+            </ul>
+          </div>
+          <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+        </form>
+      </div>
+    </div>
+  </div>
+  <th:block th:fragment="toolbarContent"></th:block>
+</body>
+</html>

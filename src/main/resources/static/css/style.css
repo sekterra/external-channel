@@ -1,0 +1,10 @@
+/* Custom styles for external-channel */
+
+/* Add custom styles here only when Framework7 doesn't provide what you need */
+/* style.css */
+:root {
+    /* Toolbar를 투명하게 */
+    --f7-bars-bg-color: #efeff4; /* 본문과 같은 배경 */
+    --f7-bars-border-color: transparent; /* 구분선 제거 */
+    --f7-toolbar-shadow: none; /* 그림자 제거 */
+}

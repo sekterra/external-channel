@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:fragment="layout(title, content, toolbarContent)" class="ios">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <title th:replace="${title}">External Channel</title>
+  <!-- Framework7 로컬 리소스 -->
+  <link rel="stylesheet" th:href="@{/vendor/framework7/framework7-bundle.min.css}"/>
+  <link rel="stylesheet" th:href="@{/css/style.css}"/>
+</head>
+<body>
+  <div id="app" class="framework7-root">
+    <div class="view view-main">
+      <div class="page" data-name="page">
+        <!-- 헤더 -->
+        <div class="navbar">
+          <div class="navbar-bg"></div>
+          <div class="navbar-inner">
+            <div class="left" th:if="${showBackButton}">
+              <a th:href="${backUrl != null} ? ${backUrl} : '#'" class="link back">
+                <i class="icon icon-back"></i>
+                <span th:text="${backText != null} ? ${backText} : 'Back'">Back</span>
+              </a>
+            </div>
+            <div class="title" th:text="${pageTitle != null} ? ${pageTitle} : 'External Channel'">External Channel</div>
+          </div>
+        </div>
+        <!-- 콘텐츠 -->
+        <div class="page-content" th:replace="${content}">
+          <!-- content from child templates -->
+        </div>
+        <!-- 하단 CTA (optional) -->
+        <div th:if="${toolbarContent != null}" class="toolbar toolbar-bottom">
+          <div class="toolbar-inner">
+            <div th:replace="${toolbarContent}"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script th:src="@{/vendor/framework7/framework7-bundle.min.js}"></script>
+  <script>
+    var app = new Framework7({
+      el: '#app',
+      theme: 'ios',
+      view: {
+        pushState: false
+      }
+    });
+  </script>
+</body>
+</html>

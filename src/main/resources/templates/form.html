@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{layout/base :: layout(~{::title}, ~{::content}, ~{::toolbarContent})}">
+<head>
+  <meta charset="utf-8"/>
+  <title th:fragment="title">신청서</title>
+</head>
+<body>
+  <div th:fragment="content" class="page-content">
+
+  <!-- Text Inputs -->
+  <div class="block-title">Text Inputs</div>
+  <form class="list list-strong inset list-dividers-ios">
+    <ul>
+      <li>
+        <div class="item-content item-input">
+          <div class="item-inner">
+            <div class="item-title item-label">Name</div>
+            <div class="item-input-wrap">
+              <input type="text" name="name" placeholder="Your name" />
+            </div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="item-content item-input">
+          <div class="item-inner">
+            <div class="item-title item-label">E-mail</div>
+            <div class="item-input-wrap">
+              <input type="email" name="email" placeholder="E-mail" />
+            </div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="item-content item-input">
+          <div class="item-inner">
+            <div class="item-title item-label">Password</div>
+            <div class="item-input-wrap">
+              <input type="password" name="password" placeholder="Password" />
+            </div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="item-content item-input">
+          <div class="item-inner">
+            <div class="item-title item-label">Phone</div>
+            <div class="item-input-wrap">
+              <input type="tel" name="phone" placeholder="Phone" />
+            </div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="item-content item-input">
+          <div class="item-inner">
+            <div class="item-title item-label">URL</div>
+            <div class="item-input-wrap">
+              <input type="url" name="url" placeholder="URL" />
+            </div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="item-content item-input">
+          <div class="item-inner">
+            <div class="item-title item-label">Number</div>
+            <div class="item-input-wrap">
+              <input type="number" name="number" placeholder="Number" />
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </form>
+
+  <!-- Textarea -->
+  <div class="block-title">Textarea</div>
+  <form class="list list-strong inset list-dividers-ios">
+    <ul>
+      <li>
+        <div class="item-content item-input">
+          <div class="item-inner">
+            <div class="item-title item-label">Bio</div>
+            <div class="item-input-wrap">
+              <textarea placeholder="Bio" class="resizable"></textarea>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </form>
+
+  <!-- Select -->
+  <div class="block-title">Select</div>
+  <form class="list list-strong inset list-dividers-ios">
+    <ul>
+      <li>
+        <div class="item-content item-input">
+          <div class="item-inner">
+            <div class="item-title item-label">Gender</div>
+            <div class="item-input-wrap">
+              <select name="gender">
+                <option value="">선택하세요</option>
+                <option value="male">남성</option>
+                <option value="female">여성</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="item-content item-input">
+          <div class="item-inner">
+            <div class="item-title item-label">Country</div>
+            <div class="item-input-wrap">
+              <select name="country">
+                <option value="">선택하세요</option>
+                <optgroup label="Asia">
+                  <option value="kr">한국</option>
+                  <option value="jp">일본</option>
+                  <option value="cn">중국</option>
+                </optgroup>
+                <optgroup label="Europe">
+                  <option value="uk">영국</option>
+                  <option value="fr">프랑스</option>
+                </optgroup>
+              </select>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </form>
+
+  <!-- Checkbox -->
+  <div class="block-title">Checkbox</div>
+  <form class="list list-strong inset list-dividers-ios">
+    <ul>
+      <li>
+        <label class="item-checkbox item-content">
+          <input type="checkbox" name="checkbox-1" />
+          <i class="icon icon-checkbox"></i>
+          <div class="item-inner">
+            <div class="item-title">Books</div>
+          </div>
+        </label>
+      </li>
+      <li>
+        <label class="item-checkbox item-content">
+          <input type="checkbox" name="checkbox-2" checked />
+          <i class="icon icon-checkbox"></i>
+          <div class="item-inner">
+            <div class="item-title">Movies (checked)</div>
+          </div>
+        </label>
+      </li>
+      <li>
+        <label class="item-checkbox item-content">
+          <input type="checkbox" name="checkbox-3" />
+          <i class="icon icon-checkbox"></i>
+          <div class="item-inner">
+            <div class="item-title">Food</div>
+          </div>
+        </label>
+      </li>
+    </ul>
+  </form>
+
+  <!-- Radio -->
+  <div class="block-title">Radio Buttons</div>
+  <form class="list list-strong inset list-dividers-ios">
+    <ul>
+      <li>
+        <label class="item-radio item-content">
+          <input type="radio" name="demo-radio" value="1" />
+          <i class="icon icon-radio"></i>
+          <div class="item-inner">
+            <div class="item-title">Option 1</div>
+          </div>
+        </label>
+      </li>
+      <li>
+        <label class="item-radio item-content">
+          <input type="radio" name="demo-radio" value="2" checked />
+          <i class="icon icon-radio"></i>
+          <div class="item-inner">
+            <div class="item-title">Option 2 (checked)</div>
+          </div>
+        </label>
+      </li>
+      <li>
+        <label class="item-radio item-content">
+          <input type="radio" name="demo-radio" value="3" />
+          <i class="icon icon-radio"></i>
+          <div class="item-inner">
+            <div class="item-title">Option 3</div>
+          </div>
+        </label>
+      </li>
+    </ul>
+  </form>
+
+  <!-- Toggle -->
+  <div class="block-title">Toggle</div>
+  <form class="list list-strong inset list-dividers-ios">
+    <ul>
+      <li>
+        <div class="item-content">
+          <div class="item-inner">
+            <div class="item-title">Toggle</div>
+            <div class="item-after">
+              <label class="toggle toggle-init">
+                <input type="checkbox" name="toggle-1" />
+                <i class="toggle-icon"></i>
+              </label>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="item-content">
+          <div class="item-inner">
+            <div class="item-title">Toggle (checked)</div>
+            <div class="item-after">
+              <label class="toggle toggle-init">
+                <input type="checkbox" name="toggle-2" checked />
+                <i class="toggle-icon"></i>
+              </label>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </form>
+
+  <!-- Date/Time Inputs -->
+  <div class="block-title">Date & Time</div>
+  <form class="list list-strong inset list-dividers-ios">
+    <ul>
+      <li>
+        <div class="item-content item-input">
+          <div class="item-inner">
+            <div class="item-title item-label">Date</div>
+            <div class="item-input-wrap">
+              <input type="date" name="date" />
+            </div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="item-content item-input">
+          <div class="item-inner">
+            <div class="item-title item-label">Time</div>
+            <div class="item-input-wrap">
+              <input type="time" name="time" />
+            </div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="item-content item-input">
+          <div class="item-inner">
+            <div class="item-title item-label">Datetime</div>
+            <div class="item-input-wrap">
+              <input type="datetime-local" name="datetime" />
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </form>
+
+  <!-- File Upload -->
+  <div class="block-title">File Upload</div>
+  <form class="list list-strong inset list-dividers-ios">
+    <ul>
+      <li>
+        <div class="item-content item-input">
+          <div class="item-inner">
+            <div class="item-title item-label">Image</div>
+            <div class="item-input-wrap">
+              <input type="file" name="file" accept="image/*" />
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </form>
+
+  <!-- Action Buttons -->
+  <div class="block block-strong inset grid grid-cols-2 grid-gap">
+    <a class="button button-fill button-round" href="#">Clear</a>
+    <a class="button button-fill button-round" href="#">Submit</a>
+  </div>
+
+</div>
+  <th:block th:fragment="toolbarContent"></th:block>
+</body>
+</html>

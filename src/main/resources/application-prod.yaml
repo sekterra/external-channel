@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://192.168.0.101:5432/ext_channel
+    username: pmis
+    password: pmis
+    driver-class-name: org.postgresql.Driver
+  sql:
+    init:
+      mode: never

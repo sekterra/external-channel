@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{layout/base :: layout(~{::title}, ~{::content})}">
+<head>
+  <meta charset="utf-8"/>
+  <title th:fragment="title">폼 컴포넌트 카탈로그</title>
+</head>
+<body>
+  <div th:fragment="content" class="page-content">
+    <form>
+      <!-- Section 1 - 기본 입력 필드 -->
+      <div class="block block-strong inset">
+        <p class="block-title">기본 입력 필드</p>
+        <div class="list inset">
+          <ul>
+            <li class="item-content item-input">
+              <div class="item-inner">
+                <div class="item-title item-label"><span class="required">성명</span></div>
+                <div class="item-input-wrap">
+                  <input type="text" name="name" placeholder="성명"/>
+                </div>
+              </div>
+            </li>
+            <li class="item-content item-input">
+              <div class="item-inner">
+                <div class="item-title item-label">나이</div>
+                <div class="item-input-wrap">
+                  <input type="number" name="age" placeholder="나이"/>
+                </div>
+              </div>
+            </li>
+            <li class="item-content item-input">
+              <div class="item-inner">
+                <div class="item-title item-label"><span class="required">비밀번호</span></div>
+                <div class="item-input-wrap">
+                  <input type="password" name="password" placeholder="비밀번호"/>
+                </div>
+              </div>
+            </li>
+            <li class="item-content item-input">
+              <div class="item-inner">
+                <div class="item-title item-label"><span class="required">이메일 주소</span></div>
+                <div class="item-input-wrap">
+                  <input type="email" name="email" placeholder="이메일 주소"/>
+                </div>
+              </div>
+            </li>
+            <li class="item-content item-input">
+              <div class="item-inner">
+                <div class="item-title item-label"><span class="required">휴대폰 번호</span></div>
+                <div class="item-input-wrap">
+                  <input type="tel" name="phone" placeholder="휴대폰 번호"/>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="block-footer">기본 입력 필드입니다.</div>
+      </div>
+
+      <!-- Section 2 - 긴 텍스트 및 선택 -->
+      <div class="block block-strong inset">
+        <p class="block-title">긴 텍스트 및 선택</p>
+        <div class="list inset">
+          <ul>
+            <li class="item-content item-input">
+              <div class="item-inner">
+                <div class="item-title item-label">요청사항</div>
+                <div class="item-input-wrap">
+                  <textarea name="request" placeholder="요청사항" rows="3" maxlength="100"></textarea>
+                </div>
+                <div class="item-input-info">0/100</div>
+              </div>
+            </li>
+            <li class="item-content item-input">
+              <div class="item-inner">
+                <div class="item-title item-label"><span class="required">신청 유형</span></div>
+                <div class="item-input-wrap">
+                  <select name="applicationType" required="required">
+                    <option value="">선택하세요</option>
+                    <option th:each="opt : ${applicationTypes}" th:value="${opt}" th:text="${opt}">유형1</option>
+                  </select>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="block-footer">여러 줄 입력 및 드롭다운 선택입니다.</div>
+      </div>
+
+      <!-- Section 3 - 선택 옵션 -->
+      <div class="block block-strong inset">
+        <p class="block-title">선택 옵션</p>
+        <div class="list inset">
+          <ul>
+            <li class="item-content">
+              <div class="item-inner">
+                <div class="item-title"><span class="required">성별</span></div>
+              </div>
+            </li>
+            <li class="item-content">
+              <label class="item-radio item-input">
+                <input type="radio" name="gender" value="male"/>
+                <i class="icon-radio"></i>
+                <div class="item-inner">
+                  <div class="item-title">남성</div>
+                </div>
+              </label>
+            </li>
+            <li class="item-content">
+              <label class="item-radio item-input">
+                <input type="radio" name="gender" value="female"/>
+                <i class="icon-radio"></i>
+                <div class="item-inner">
+                  <div class="item-title">여성</div>
+                </div>
+              </label>
+            </li>
+            <li class="item-content">
+              <div class="item-inner">
+                <div class="item-title"><span class="required">약관 동의</span></div>
+              </div>
+            </li>
+            <li class="item-content">
+              <label class="item-checkbox item-input">
+                <input type="checkbox" name="agreeService"/>
+                <i class="icon-checkbox"></i>
+                <div class="item-inner">
+                  <div class="item-title">서비스 이용약관 동의</div>
+                </div>
+              </label>
+            </li>
+            <li class="item-content">
+              <label class="item-checkbox item-input">
+                <input type="checkbox" name="agreePrivacy"/>
+                <i class="icon-checkbox"></i>
+                <div class="item-inner">
+                  <div class="item-title">개인정보 처리방침 동의</div>
+                </div>
+              </label>
+            </li>
+            <li class="item-content">
+              <div class="item-inner">
+                <div class="item-title">알림 수신 여부</div>
+                <label class="toggle">
+                  <input type="checkbox" name="notify"/>
+                  <span class="toggle-icon"></span>
+                </label>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="block-footer">단일 선택, 다중 선택 및 토글입니다.</div>
+      </div>
+
+      <!-- Section 4 - 날짜 및 파일 -->
+      <div class="block block-strong inset">
+        <p class="block-title">날짜 및 파일</p>
+        <div class="list inset">
+          <ul>
+            <li class="item-content item-input">
+              <div class="item-inner">
+                <div class="item-title item-label"><span class="required">신청일</span></div>
+                <div class="item-input-wrap">
+                  <input type="date" name="applicationDate"/>
+                </div>
+              </div>
+            </li>
+            <li class="item-content item-input">
+              <div class="item-inner">
+                <div class="item-title item-label">방문 예정 일시</div>
+                <div class="item-input-wrap">
+                  <input type="datetime-local" name="visitDatetime"/>
+                </div>
+              </div>
+            </li>
+            <li class="item-content item-input">
+              <div class="item-inner">
+                <div class="item-title item-label">첨부 파일</div>
+                <div class="item-input-wrap">
+                  <input type="file" name="attachment" accept="image/*,.pdf"/>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="block-footer">날짜/시간 선택 및 파일 업로드입니다.</div>
+      </div>
+
+      <!-- Section 5 - 읽기 전용 및 검증 -->
+      <div class="block block-strong inset">
+        <p class="block-title">읽기 전용 및 검증</p>
+        <div class="list inset">
+          <ul>
+            <li class="item-content item-input">
+              <div class="item-inner">
+                <div class="item-title item-label">인증된 이름</div>
+                <div class="item-input-wrap">
+                  <input type="text" readonly="readonly" th:value="${readonlyName}"/>
+                </div>
+              </div>
+            </li>
+            <li class="item-content item-input">
+              <div class="item-inner">
+                <div class="item-title item-label"><span class="required">이메일 재확인</span></div>
+                <div class="item-input-wrap">
+                  <input type="email" name="emailConfirm" placeholder="이메일 재확인"/>
+                </div>
+                <div class="item-input-info color-red">올바른 이메일 형식을 입력하세요</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="block-footer">읽기 전용 필드 및 검증 메시지 예시입니다.</div>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

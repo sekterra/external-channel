@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{layout/base :: layout(~{::title}, ~{::content})}">
+<head>
+  <meta charset="utf-8"/>
+  <title th:fragment="title">신청 내역 조회</title>
+</head>
+<body>
+  <div th:fragment="content">
+    <!-- 상단: 사용자 정보 (3~4개 필드) -->
+    <div class="block block-strong inset">
+      <p class="block-title">조회 조건</p>
+      <div class="list list-strong inset">
+        <ul>
+          <li class="item-content">
+            <div class="item-inner">
+              <div class="item-title">이름</div>
+              <div class="item-after" th:text="${claims.name}">홍길동</div>
+            </div>
+          </li>
+          <li class="item-content">
+            <div class="item-inner">
+              <div class="item-title">생년월일</div>
+              <div class="item-after" th:text="${claims.birthDate}">19900101</div>
+            </div>
+          </li>
+          <li class="item-content">
+            <div class="item-inner">
+              <div class="item-title">휴대폰 번호</div>
+              <div class="item-after" th:text="${claims.phoneNumber}">01012345678</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- 중단: Framework7 data-table -->
+    <div class="block block-strong inset">
+      <p class="block-title">신청 내역</p>
+      <div class="table-responsive data-table-wrapper">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th class="col-no">번호</th>
+              <th class="col-date hide-sm">신청일</th>
+              <th class="col-type">신청유형</th>
+              <th class="col-status">상태</th>
+              <th class="col-process hide-sm">처리일</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr th:each="row : ${tableData}">
+              <td class="col-no" th:text="${row.no}">1</td>
+              <td class="col-date hide-sm" th:text="${row.applicationDate}">2025-01-15</td>
+              <td class="col-type" th:text="${row.applicationType}">신규</td>
+              <td class="col-status" th:text="${row.status}">완료</td>
+              <td class="col-process hide-sm" th:text="${row.processDate}">2025-01-16</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!-- 하단 버튼 -->
+    <div class="block inset">
+      <div class="row">
+        <div class="col">
+          <a href="#" class="button button-large">초기화</a>
+        </div>
+        <div class="col">
+          <a href="#" class="button button-large button-fill">조회</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
