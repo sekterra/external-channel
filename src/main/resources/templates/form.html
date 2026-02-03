@@ -7,9 +7,36 @@
 <body>
   <div th:fragment="content" class="page-content">
 
-  <!-- Text Inputs -->
-  <div class="block-title">Text Inputs</div>
-  <form class="list list-strong inset list-dividers-ios">
+  <form id="form-master" class="list list-strong inset list-dividers-ios">
+    <input type="hidden" name="id" id="form-id" value="" />
+
+    <!-- Title & Content (required) -->
+    <div class="block-title">제목 · 내용</div>
+    <ul>
+      <li>
+        <div class="item-content item-input">
+          <div class="item-inner">
+            <div class="item-title item-label">제목 (필수)</div>
+            <div class="item-input-wrap">
+              <input type="text" name="title" id="form-title" placeholder="제목을 입력하세요" maxlength="200" required />
+            </div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="item-content item-input">
+          <div class="item-inner">
+            <div class="item-title item-label">내용 (필수)</div>
+            <div class="item-input-wrap">
+              <textarea name="content" id="form-content" placeholder="내용을 입력하세요" maxlength="4000" required></textarea>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+
+    <!-- Text Inputs -->
+    <div class="block-title">Text Inputs</div>
     <ul>
       <li>
         <div class="item-content item-input">
@@ -72,28 +99,24 @@
         </div>
       </li>
     </ul>
-  </form>
 
-  <!-- Textarea -->
-  <div class="block-title">Textarea</div>
-  <form class="list list-strong inset list-dividers-ios">
+    <!-- Textarea -->
+    <div class="block-title">Textarea</div>
     <ul>
       <li>
         <div class="item-content item-input">
           <div class="item-inner">
             <div class="item-title item-label">Bio</div>
             <div class="item-input-wrap">
-              <textarea placeholder="Bio" class="resizable"></textarea>
+              <textarea name="bio" placeholder="Bio" class="resizable"></textarea>
             </div>
           </div>
         </div>
       </li>
     </ul>
-  </form>
 
-  <!-- Select -->
-  <div class="block-title">Select</div>
-  <form class="list list-strong inset list-dividers-ios">
+    <!-- Select -->
+    <div class="block-title">Select</div>
     <ul>
       <li>
         <div class="item-content item-input">
@@ -131,15 +154,13 @@
         </div>
       </li>
     </ul>
-  </form>
 
-  <!-- Checkbox -->
-  <div class="block-title">Checkbox</div>
-  <form class="list list-strong inset list-dividers-ios">
+    <!-- Checkbox -->
+    <div class="block-title">Checkbox</div>
     <ul>
       <li>
         <label class="item-checkbox item-content">
-          <input type="checkbox" name="checkbox-1" />
+          <input type="checkbox" name="checkboxBooks" value="1" />
           <i class="icon icon-checkbox"></i>
           <div class="item-inner">
             <div class="item-title">Books</div>
@@ -148,7 +169,7 @@
       </li>
       <li>
         <label class="item-checkbox item-content">
-          <input type="checkbox" name="checkbox-2" checked />
+          <input type="checkbox" name="checkboxMovies" value="1" checked />
           <i class="icon icon-checkbox"></i>
           <div class="item-inner">
             <div class="item-title">Movies (checked)</div>
@@ -157,7 +178,7 @@
       </li>
       <li>
         <label class="item-checkbox item-content">
-          <input type="checkbox" name="checkbox-3" />
+          <input type="checkbox" name="checkboxFood" value="1" />
           <i class="icon icon-checkbox"></i>
           <div class="item-inner">
             <div class="item-title">Food</div>
@@ -165,15 +186,13 @@
         </label>
       </li>
     </ul>
-  </form>
 
-  <!-- Radio -->
-  <div class="block-title">Radio Buttons</div>
-  <form class="list list-strong inset list-dividers-ios">
+    <!-- Radio -->
+    <div class="block-title">Radio Buttons</div>
     <ul>
       <li>
         <label class="item-radio item-content">
-          <input type="radio" name="demo-radio" value="1" />
+          <input type="radio" name="demoRadio" value="1" />
           <i class="icon icon-radio"></i>
           <div class="item-inner">
             <div class="item-title">Option 1</div>
@@ -182,7 +201,7 @@
       </li>
       <li>
         <label class="item-radio item-content">
-          <input type="radio" name="demo-radio" value="2" checked />
+          <input type="radio" name="demoRadio" value="2" checked />
           <i class="icon icon-radio"></i>
           <div class="item-inner">
             <div class="item-title">Option 2 (checked)</div>
@@ -191,7 +210,7 @@
       </li>
       <li>
         <label class="item-radio item-content">
-          <input type="radio" name="demo-radio" value="3" />
+          <input type="radio" name="demoRadio" value="3" />
           <i class="icon icon-radio"></i>
           <div class="item-inner">
             <div class="item-title">Option 3</div>
@@ -199,11 +218,9 @@
         </label>
       </li>
     </ul>
-  </form>
 
-  <!-- Toggle -->
-  <div class="block-title">Toggle</div>
-  <form class="list list-strong inset list-dividers-ios">
+    <!-- Toggle -->
+    <div class="block-title">Toggle</div>
     <ul>
       <li>
         <div class="item-content">
@@ -211,7 +228,7 @@
             <div class="item-title">Toggle</div>
             <div class="item-after">
               <label class="toggle toggle-init">
-                <input type="checkbox" name="toggle-1" />
+                <input type="checkbox" name="toggle1" />
                 <i class="toggle-icon"></i>
               </label>
             </div>
@@ -224,7 +241,7 @@
             <div class="item-title">Toggle (checked)</div>
             <div class="item-after">
               <label class="toggle toggle-init">
-                <input type="checkbox" name="toggle-2" checked />
+                <input type="checkbox" name="toggle2" checked />
                 <i class="toggle-icon"></i>
               </label>
             </div>
@@ -232,11 +249,9 @@
         </div>
       </li>
     </ul>
-  </form>
 
-  <!-- Date/Time Inputs -->
-  <div class="block-title">Date & Time</div>
-  <form class="list list-strong inset list-dividers-ios">
+    <!-- Date/Time Inputs -->
+    <div class="block-title">Date & Time</div>
     <ul>
       <li>
         <div class="item-content item-input">
@@ -269,11 +284,9 @@
         </div>
       </li>
     </ul>
-  </form>
 
-  <!-- File Upload -->
-  <div class="block-title">File Upload</div>
-  <form class="list list-strong inset list-dividers-ios">
+    <!-- File Upload -->
+    <div class="block-title">File Upload</div>
     <ul>
       <li>
         <div class="item-content item-input">
@@ -286,13 +299,121 @@
         </div>
       </li>
     </ul>
+
+    <!-- Message area -->
+    <div id="form-message" class="block inset color-red" style="display:none;"></div>
+
+    <!-- Action Buttons: single submit -->
+    <div class="block block-strong inset grid grid-cols-2 grid-gap">
+      <button type="button" class="button button-fill button-round" id="form-clear">Clear</button>
+      <button type="submit" class="button button-fill button-round">Submit</button>
+    </div>
   </form>
 
-  <!-- Action Buttons -->
-  <div class="block block-strong inset grid grid-cols-2 grid-gap">
-    <a class="button button-fill button-round" href="#">Clear</a>
-    <a class="button button-fill button-round" href="#">Submit</a>
-  </div>
+  <script th:inline="javascript">
+    (function() {
+      var form = document.getElementById('form-master');
+      var msgEl = document.getElementById('form-message');
+      var idEl = document.getElementById('form-id');
+      var titleEl = document.getElementById('form-title');
+      var contentEl = document.getElementById('form-content');
+      if (!form || !msgEl) return;
+
+      function hideMessage() {
+        msgEl.style.display = 'none';
+        msgEl.textContent = '';
+      }
+
+      function showMessage(text, isError) {
+        msgEl.textContent = text;
+        msgEl.style.display = 'block';
+        msgEl.classList.toggle('color-red', isError !== false);
+        msgEl.classList.toggle('color-green', isError === false);
+      }
+
+      function serializeForm() {
+        var payload = {};
+        var inputs = form.querySelectorAll('input, select, textarea');
+        for (var i = 0; i < inputs.length; i++) {
+          var el = inputs[i];
+          var name = el.name;
+          if (!name) continue;
+          if (el.type === 'file') {
+            payload[name] = el.files && el.files.length ? el.files[0].name : '';
+            continue;
+          }
+          if (el.type === 'checkbox') {
+            payload[name] = el.checked;
+            continue;
+          }
+          if (el.type === 'radio') {
+            if (el.checked) payload[name] = el.value;
+            continue;
+          }
+          var val = el.value;
+          payload[name] = val != null ? String(val).trim() : '';
+        }
+        if (!payload.demoRadio) payload.demoRadio = '';
+        return payload;
+      }
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        hideMessage();
+        var raw = serializeForm();
+        var title = (raw.title || '').trim();
+        var content = (raw.content || '').trim();
+        if (!title) {
+          showMessage('제목을 입력하세요.', true);
+          return;
+        }
+        if (!content) {
+          showMessage('내용을 입력하세요.', true);
+          return;
+        }
+        var idVal = (raw.id || '').trim();
+        var url = '/api/forms';
+        var method = 'POST';
+        if (idVal && idVal !== '') {
+          url = '/api/forms/' + idVal;
+          method = 'PUT';
+        }
+        var body = {
+          title: title,
+          content: content,
+          payloadJson: JSON.stringify(raw)
+        };
+        fetch(url, {
+          method: method,
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(body)
+        }).then(function(res) {
+          if (res.ok) {
+            return res.json().then(function(data) {
+              if (data.id && !idVal) {
+                idEl.value = String(data.id);
+              }
+              showMessage(idVal ? '수정되었습니다.' : '등록되었습니다.', false);
+              return;
+            });
+          }
+          return res.json().then(function(data) {
+            showMessage((data && data.message) || '처리에 실패했습니다.', true);
+          }).catch(function() {
+            showMessage('처리에 실패했습니다.', true);
+          });
+        }).catch(function() {
+          showMessage('요청 중 오류가 발생했습니다.', true);
+        });
+      });
+
+      document.getElementById('form-clear').addEventListener('click', function() {
+        form.reset();
+        idEl.value = '';
+        hideMessage();
+      });
+    })();
+  </script>
 
 </div>
   <th:block th:fragment="toolbarContent"></th:block>

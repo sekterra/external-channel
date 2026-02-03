@@ -42,7 +42,7 @@ public class BridgeController {
 		Map<String, String> result = passVerificationService.verifyIdentity(token != null ? token : "", traceId);
 		log.info("[TRACE:{}] JWT_STUB_CALLED", traceId);
 		String jwt = jwtService.generateToken(result, traceId);
-		log.info("[TRACE:{}] BRIDGE_VERIFY_SUCCESS redirect=/form?jwt=...", traceId);
-		return "redirect:/form?jwt=" + jwt + "&traceId=" + traceId;
+		log.info("[TRACE:{}] BRIDGE_VERIFY_SUCCESS redirect=/forms?jwt=...", traceId);
+		return "redirect:/forms?jwt=" + jwt + "&traceId=" + traceId;
 	}
 }

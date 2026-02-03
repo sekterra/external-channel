@@ -14,10 +14,12 @@ public class SecurityConfig {
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 		http
 			.authorizeHttpRequests(requests -> requests
+				.requestMatchers("/api/**").permitAll()
 				.requestMatchers("/bridge", "/bridge/**").permitAll()
-				.requestMatchers("/", "/sample", "/form", "/form-table", "/component-demo", "/login", "/css/**", "/vendor/**", "/error").permitAll()
+				.requestMatchers("/", "/sample", "/forms", "/form-table", "/component-demo", "/login", "/css/**", "/vendor/**", "/error").permitAll()
 				.anyRequest().authenticated())
-			.formLogin(form -> form.loginPage("/login"));
+			.formLogin(form -> form.loginPage("/login"))
+			.csrf(csrf -> csrf.ignoringRequestMatchers("/api/**"));
 		return http.build();
 	}
 }

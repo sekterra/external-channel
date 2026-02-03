@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.skens.tsms.external_channel.mapper.FormMapper">
+
+  <insert id="insert" parameterType="com.skens.tsms.external_channel.domain.Form" useGeneratedKeys="true" keyProperty="id">
+    INSERT INTO form_sample (title, content, payload_json, use_yn, created_at, updated_at)
+    VALUES (#{title}, #{content}, #{payloadJson}, 'Y', #{createdAt}, #{updatedAt})
+  </insert>
+
+  <select id="selectById" resultType="com.skens.tsms.external_channel.domain.Form">
+    SELECT id, title, content, payload_json AS payloadJson, use_yn AS useYn, created_at AS createdAt, updated_at AS updatedAt
+    FROM form_sample
+    WHERE id = #{id} AND use_yn = 'Y'
+  </select>
+
+  <select id="selectList" resultType="com.skens.tsms.external_channel.domain.Form">
+    SELECT id, title, content, payload_json AS payloadJson, use_yn AS useYn, created_at AS createdAt, updated_at AS updatedAt
+    FROM form_sample
+    WHERE use_yn = 'Y'
+    ORDER BY id DESC
+  </select>
+
+  <update id="update" parameterType="com.skens.tsms.external_channel.domain.Form">
+    UPDATE form_sample
+    SET title = #{title}, content = #{content}, payload_json = #{payloadJson}, updated_at = #{updatedAt}
+    WHERE id = #{id} AND use_yn = 'Y'
+  </update>
+
+  <update id="logicalDelete">
+    UPDATE form_sample
+    SET use_yn = 'N', updated_at = #{updatedAt}
+    WHERE id = #{id}
+  </update>
+</mapper>
