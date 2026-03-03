@@ -11,12 +11,6 @@
       <p class="block-title">브리지</p>
       <p th:if="${param.error == null}">본인인증 진행 중...</p>
       <p th:if="${param.error != null}" class="color-red">인증에 실패했습니다. 다시 시도해 주세요.</p>
-      <div class="block inset">
-        <button type="button" class="button button-large button-fill" onclick="var w = window.open('/sample', '_blank', 'noopener,noreferrer'); var m = document.getElementById('sample-open-msg'); if (m) m.style.display = 'block';">
-          샘플 페이지 열기
-        </button>
-        <div id="sample-open-msg" style="display:none; margin-top: 8px;" class="color-green">새 창에서 샘플 페이지를 열었습니다.</div>
-      </div>
       <form th:action="@{/bridge/verify}" method="post">
         <input type="hidden" th:name="token" th:value="${token}"/>
         <div class="block inset">
@@ -25,10 +19,6 @@
         <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
       </form>
     </div>
-    <script th:inline="javascript">
-      /* optional: attempt auto-open on load; button remains fallback if blocked */
-      window.addEventListener('load', function() { try { window.open('/sample', '_blank', 'noopener,noreferrer'); } catch (e) {} });
-    </script>
   </div>
 </body>
 </html>

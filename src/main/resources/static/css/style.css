@@ -1,6 +1,69 @@
 /* Custom styles for external-channel */
 
-/* Add custom styles here only when Framework7 doesn't provide what you need */
+/* Force inline label + component on one row (override Framework7 stacked layout) */
+.ec-inline-item .item-inner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Label on the left */
+.ec-inline-item .ec-inline-label {
+  flex: 0 0 110px;
+  min-width: 110px;
+  max-width: 110px;
+  text-align: left;
+  white-space: nowrap;
+  font-weight: 600;
+}
+
+/* Input on the right */
+.ec-inline-item .item-input-wrap {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+/* Ensure input stretches */
+.ec-inline-item .item-input-wrap input,
+.ec-inline-item .item-input-wrap select {
+  width: 100%;
+}
+
+/* Textarea alignment: label centered vertically, textarea can expand */
+.ec-inline-item .item-input-wrap textarea {
+  width: 100%;
+  min-height: 96px;
+}
+
+/* Toggle: keep component on the right */
+.ec-inline-item .item-after {
+  flex-shrink: 0;
+}
+
+/* Mobile fallback: stack on narrow screens */
+@media (max-width: 360px) {
+  .ec-inline-item .item-inner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+  }
+  .ec-inline-item .ec-inline-label {
+    flex: 0 0 auto;
+    min-width: unset;
+    max-width: unset;
+  }
+}
+
+/* Validation: invalid input (Validator.js + Framework7) */
+.input-invalid,
+.item-input-wrap.input-invalid input,
+.item-input-wrap.input-invalid textarea,
+.item-input-wrap.input-invalid select {
+  border-color: var(--f7-color-red, #ff3b30) !important;
+  background-color: rgba(255, 59, 48, 0.05);
+}
+
 /* style.css */
 :root {
     /* Toolbar를 투명하게 */
